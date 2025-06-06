@@ -4,6 +4,7 @@ import Login from "./login";
 import Books from "./books";
 import "./index.css";
 import HomePage from "./Homepage";
+import NotFound from "./not-found";
 
 // Contoh ProtectedRoute sederhana
 const ProtectedRoute = ({ children }) => {
@@ -29,6 +30,7 @@ function App() {
           } 
         />
         <Route path="/homepage" element={<HomePage />} />
+        <Route path="/errorpage" element={<NotFound />} />
         {/* Redirect ke /login kalau path lain */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>

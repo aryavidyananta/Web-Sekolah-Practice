@@ -4,11 +4,11 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div class="bg-blue-600">
+    <div class="bg-blue-400">
       <div class="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="relative flex items-center justify-center gap-10">
 
-          <div class="inline-flex items-center space-x-2 hover:text-teal-400 transition cursor-pointer">
+          <div class="inline-flex items-center space-x-2 hover:text-blue-400 transition cursor-pointer">
             <img src="/Logo-Sekolah.png" alt="Logo" class="w-20 h-20" />
             <span class="text-xl font-bold tracking-wide text-white uppercase">SMAN</span>
           </div>
@@ -16,7 +16,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="font-medium tracking-wide text-white transition duration-200 hover:text-teal-400"
+                class="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
                 Product
               </a>
@@ -24,7 +24,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="font-medium tracking-wide text-white transition duration-200 hover:text-teal-400"
+                class="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
                 Features
               </a>
@@ -32,7 +32,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="font-medium tracking-wide text-white transition duration-200 hover:text-teal-400"
+                class="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
                 Pricing
               </a>
@@ -40,7 +40,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                class="font-medium tracking-wide text-white transition duration-200 hover:text-teal-400"
+                class="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
                 About us
               </a>

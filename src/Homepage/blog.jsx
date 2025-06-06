@@ -124,7 +124,7 @@ const Blog = () => {
               consequuntur magni voluptatem doloremque.
             </p>
             <a
-              href="/"
+              href="/errorpage"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
