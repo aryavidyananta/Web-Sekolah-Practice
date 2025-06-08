@@ -1,3 +1,4 @@
+import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="w-full bg-blue-400 px-4 pt-16">
@@ -69,24 +70,29 @@ const Footer = () => {
               Sosial Media
             </span>
             <div className="flex items-center mt-1 space-x-3">
-              {/* Replace with your own social media links */}
               <a
-                href="/"
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
-                {/* Twitter */}
+                <FaTwitter size={30} />
               </a>
               <a
-                href="/"
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
-                {/* Instagram */}
+                <FaInstagram size={30} />
               </a>
               <a
-                href="/"
+                href="https://facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
               >
-                {/* Facebook */}
+                <FaFacebookF size={30} />
               </a>
             </div>
           </div>

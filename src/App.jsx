@@ -2,15 +2,16 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./login";
 import Books from "./books";
-import "./index.css";
 import HomePage from "./Homepage";
 import NotFound from "./not-found";
+import About from "./About";
+import MainLayout from "./main-layout";
 
-// Contoh ProtectedRoute sederhana
+
+// ProtectedRoute tetap seperti sebelumnya
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
   if (!token) {
-    // Kalau belum login, redirect ke login
     return <Navigate to="/login" replace />;
   }
   return children;
@@ -21,17 +22,38 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route 
-          path="/books" 
+        
+        <Route
+          path="/books"
           element={
             <ProtectedRoute>
-              <Books />
+              <MainLayout>
+                <Books />
+              </MainLayout>
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route path="/homepage" element={<HomePage />} />
+
+        <Route
+          path="/homepage"
+          element={
+            <MainLayout>
+              <HomePage />
+            </MainLayout>
+          }
+        />
+
+        <Route
+          path="/about"
+          element={
+            <MainLayout>
+              <About />
+            </MainLayout>
+          }
+        />
+
         <Route path="/errorpage" element={<NotFound />} />
-        {/* Redirect ke /login kalau path lain */}
+
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

@@ -11,7 +11,6 @@ import CardsSection from './cardsection';
 const HomePage = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <CardsSection />
       <WelcomeSection />
@@ -19,7 +18,6 @@ const HomePage = () => {
       <Ekskul />
       {/* <StatsSection /> */}
       <Blog />
-      <Footer />
     </>
   );
 };
