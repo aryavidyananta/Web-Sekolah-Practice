@@ -16,26 +16,10 @@ const Navbar = () => {
           <ul className="hidden lg:flex items-center space-x-24 mx-auto">
             <li>
               <Link
-                to="/product"
+                to="/homepage"
                 className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
-                Product
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/features"
-                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
-              >
-                Features
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/pricing"
-                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
-              >
-                Pricing
+                Beranda
               </Link>
             </li>
             <li>
@@ -43,7 +27,39 @@ const Navbar = () => {
                 to="/about"
                 className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
               >
-                About us
+                Tentang Kami
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/blog"
+                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
+              >
+                Berita
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/staff"
+                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
+              >
+                Staff
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/ekstrakulikuler"
+                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
+              >
+                Ekstrakulikuler
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/fasilitas"
+                className="font-medium tracking-wide text-white transition duration-200 hover:text-blue-800"
+              >
+                Fasilitas
               </Link>
             </li>
           </ul>

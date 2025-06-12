@@ -6,7 +6,10 @@ import HomePage from "./Homepage";
 import NotFound from "./not-found";
 import About from "./About";
 import MainLayout from "./main-layout";
-
+import BlogPage from "./Blog";
+import Staff from "./staff";
+import Ekstrakulikuler from "./Eskul";
+import Fasilitas from "./fasilitas";
 
 // ProtectedRoute tetap seperti sebelumnya
 const ProtectedRoute = ({ children }) => {
@@ -22,7 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
-        
+
         <Route
           path="/books"
           element={
@@ -48,6 +51,42 @@ function App() {
           element={
             <MainLayout>
               <About />
+            </MainLayout>
+          }
+        />
+
+        <Route
+          path="/blog"
+          element={
+            <MainLayout>
+              <BlogPage />
+            </MainLayout>
+          }
+        />
+
+        <Route
+          path="/staff"
+          element={
+            <MainLayout>
+              <Staff/>
+            </MainLayout>
+          }
+        />
+
+        <Route
+          path="/ekstrakulikuler"
+          element={
+            <MainLayout>
+              <Ekstrakulikuler/>
+            </MainLayout>
+          }
+        />
+
+        <Route
+          path="/fasilitas"
+          element={
+            <MainLayout>
+              <Fasilitas/>
             </MainLayout>
           }
         />
