@@ -15,7 +15,7 @@ function Login() {
       const result = await sendData("http://127.0.0.1:9000/auth", { email, password });
       if (result.code === "00") {
         localStorage.setItem("token", result.data.token);
-        navigate("/books");
+        navigate("/homepage");
       } else {
         setError(result.message || "Login gagal");
       }

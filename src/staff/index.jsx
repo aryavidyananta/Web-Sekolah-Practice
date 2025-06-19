@@ -1,5 +1,25 @@
-import { Divider, Flex, Tag } from "antd";
+import { useEffect, useState } from "react";
+import { Tag, Flex } from "antd";
+import { getData, getStaffImageUrl } from "../../utils/api";
+
 const Staff = () => {
+  const [staffs, setStaffs] = useState([]);
+
+  useEffect(() => {
+    const fetchStaffs = async () => {
+      try {
+        const res = await getData("/staff");
+        if (res?.data && Array.isArray(res.data)) {
+          setStaffs(res.data);
+        }
+      } catch (error) {
+        console.error("Gagal mengambil data staff:", error);
+      }
+    };
+
+    fetchStaffs();
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
@@ -19,155 +39,33 @@ const Staff = () => {
         </div>
       </div>
 
-      <div class="container px-6 py-10 mx-auto">
-        <p class="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt
-          ex placeat modi magni quia error alias, adipisci rem similique, at
-          omnis eligendi optio eos harum.
+      <div className="container px-6 py-10 mx-auto">
+        <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+          Berikut adalah daftar staf sekolah yang aktif.
         </p>
 
-        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
+        <div className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {staffs.map((staff) => (
+            <div
+              key={staff.id}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="rounded-l-lg shadow-md overflow-hidden w-full max-w-sm">
+                <img
+                  src={getStaffImageUrl(staff.gambar)}
+                  alt={staff.nama}
+                  className="w-full h-96 object-cover"
+                />
+              </div>
 
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              arthur melo
-            </h1>
-
-            <Flex gap="4px 0" wrap>
-              <Tag color="#2db7f5">Kepala Sekolah</Tag>
-            </Flex>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              Pamela Anderson
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Lead Developer
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              John Doe
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Full stack developer
-            </p>
-          </div>
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              arthur melo
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              design director
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              Pamela Anderson
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Lead Developer
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              John Doe
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Full stack developer
-            </p>
-          </div>
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              arthur melo
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              design director
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              Pamela Anderson
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Lead Developer
-            </p>
-          </div>
-
-          <div class="flex flex-col items-center">
-            <img
-              class="object-cover w-full rounded-xl aspect-square"
-              src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-            />
-
-            <h1 class="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">
-              John Doe
-            </h1>
-
-            <p class="mt-2 text-gray-500 capitalize dark:text-gray-300">
-              Full stack developer
-            </p>
-          </div>
+              <h2 className="mt-4 mb-2 text-xl font-semibold text-gray-800 capitalize">
+                {staff.nama}
+              </h2>
+              <Flex gap="4px 0" wrap className="justify-center">
+                <Tag color="blue">{staff.jabatan}</Tag>
+              </Flex>
+            </div>
+          ))}
         </div>
       </div>
     </>

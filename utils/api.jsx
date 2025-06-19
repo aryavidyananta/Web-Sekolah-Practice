@@ -2,9 +2,9 @@ const BASE_URL = import.meta.env.VITE_API_URL;
 
 const getToken = () => localStorage.getItem("token"); // contoh ambil token dari localStorage
 
-export const loadImage = (image_path) => {
-  return `${BASE_URL}/books${image_path}`;
-}
+export const getStaffImageUrl = (imagePath) => {
+  return `${BASE_URL}/media/${imagePath}`;
+};
 
 export const getData = async (url) => {
   try {
